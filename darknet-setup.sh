@@ -29,12 +29,13 @@ chmod +x /usr/local/bin/darknet-start
 
 echo "#!/bin/sh" > /usr/local/bin/darknet-start
 echo "darkhttpd /srv/darknet --addr 0.0.0.0 --port 80 --index index.html --log ~/darknet.log --timeout 0 --no-listing &" >> /usr/local/bin/darknet-start
-echo "wget http://127.0.0.1:7070/?page=i2p_tunnels -O hostname.html" >> /usr/local/bin/darknet-start
+echo "wget http://127.0.0.1:7070/?page=i2p_tunnels -O /tmp/hostname.html" >> /usr/local/bin/darknet-start
 echo "echo " "" >> /usr/local/bin/darknet-start
 echo "echo "------------------------------------------------------"" >> /usr/local/bin/darknet-start
 echo "echo " "" >> /usr/local/bin/darknet-start
 echo "echo "i2p address:"" >> /usr/local/bin/darknet-start
-echo "cat hostname.html | grep anon-website" >> /usr/local/bin/darknet-start
+echo "cat /tmp/hostname.html | grep anon-website" >> /usr/local/bin/darknet-start
+echo "rm /tmp/hostname.html" >> /usr/local/bin/darknet-start
 echo "echo "tor address"" >> /usr/local/bin/darknet-start
 echo "cat /var/lib/tor/hidden_service/hostname" >> /usr/local/bin/darknet-start
 
