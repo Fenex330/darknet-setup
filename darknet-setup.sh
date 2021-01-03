@@ -7,7 +7,7 @@ pacman -Syyu wget tcc i2pd tor --noconfirm #gcc
 
 cd /usr/local/src/
 wget https://unix4lyfe.org/gitweb/darkhttpd/blob_plain/HEAD:/darkhttpd.c
-tcc darkhttpd -o darkhttpd #gcc darkhttpd.c -o darkhttpd -std=c99 -pedantic-errors -O3
+tcc darkhttpd.c -o darkhttpd #gcc darkhttpd.c -o darkhttpd -std=c99 -pedantic-errors -O3
 cp darkhttpd /usr/local/bin/
 
 echo "[anon-website]" >> /etc/i2pd/tunnels.conf
@@ -41,5 +41,5 @@ echo "cat /var/lib/tor/hidden_service/hostname" >> /usr/local/bin/darknet-start
 
 echo "The setup is complete"
 echo "Please wait a few minutes until full hidden service bootstrap"
-echo "Then enter "darknet-start" in the terminal to launch your server"
+echo "Then enter darknet-start in the terminal to launch your server"
 echo "Note that you have to run this command after every reboot"
