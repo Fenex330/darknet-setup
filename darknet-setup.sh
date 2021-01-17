@@ -3,11 +3,11 @@
 # this scriptis intended to be run as root
 # feel free to change parameters according to your needs
 
-pacman -Syyu wget tcc i2pd tor --noconfirm #gcc
+pacman -Syyu wget tcc i2pd tor --noconfirm
 
 cd /usr/local/src/
 wget https://unix4lyfe.org/gitweb/darkhttpd/blob_plain/HEAD:/darkhttpd.c
-tcc darkhttpd.c -o darkhttpd #gcc darkhttpd.c -o darkhttpd -std=c99 -pedantic-errors -O3
+tcc darkhttpd.c -o darkhttpd
 cp darkhttpd /usr/local/bin/
 
 echo "[anon-website]" >> /etc/i2pd/tunnels.conf
